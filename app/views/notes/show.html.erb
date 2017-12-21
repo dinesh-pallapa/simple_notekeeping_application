@@ -1,0 +1,8 @@
+<%= @note.title %>
+<%= @note.description %>
+<% if user_signed_in? %>
+  <% if @note.user_id == current_user.id %>
+    <%= link_to "Edit" ,edit_note_path(@note) %>
+    <%= link_to "Delete", note_path(@note),method: :delete,data: {confirm: "Thinks onces again"} %>
+  <% end %>
+<% end %>
