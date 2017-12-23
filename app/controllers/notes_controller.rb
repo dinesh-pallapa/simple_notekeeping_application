@@ -1,6 +1,6 @@
 class NotesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit]
-  before_action :find_note, only: [:edit, :update, :show, :delete]
+  before_action :find_note, only: [:edit, :update, :show, :destroy]
 
   def index
     @notes = Note.all
@@ -42,7 +42,7 @@ class NotesController < ApplicationController
   end
 
   def destroy
-    if @note.destroy
+    if @note.delete
       flash[:notice] = "note Successfully deleted"
       redirect_to root_path
     else
