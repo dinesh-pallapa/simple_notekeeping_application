@@ -53,7 +53,7 @@ class NotesController < ApplicationController
   private
 
   def note_params
-    params.require(:note).permit(:title, :description)
+    params.require(:note).permit(:title, :description, :all_tags)
   end
 
   def find_note

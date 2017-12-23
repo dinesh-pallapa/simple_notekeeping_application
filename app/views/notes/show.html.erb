@@ -1,5 +1,6 @@
 <%= @note.title %>
 <%= @note.description %>
+<%= @note.all_tags %>
 <% if user_signed_in? %>
   <% if @note.user_id == current_user.id %>
     <%= link_to "Edit" ,edit_note_path(@note) %>
