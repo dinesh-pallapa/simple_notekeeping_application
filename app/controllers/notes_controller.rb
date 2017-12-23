@@ -1,9 +1,9 @@
 class NotesController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :edit]
+  before_action :authenticate_user!
   before_action :find_note, only: [:edit, :update, :show, :destroy]
 
   def index
-    @notes = Note.all
+    @notes = current_user.notes unless current_user.nil?
   end
 
   def new
@@ -22,10 +22,14 @@ class NotesController < ApplicationController
   end
 
   def show
+    if @note.user_id != current_user.id
+      flash[:alert] = "You didn't have permission to access this note"
+      redirect_to root_path
+    end
   end
 
   def edit
-    if @note.user_id != current_user
+    if @note.user_id != current_user.id
       flash[:notice] = "You didn't have permission to edit"
       redirect_to note_path
     end

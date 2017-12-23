@@ -1,4 +1,4 @@
-<%= @note.title %>
+<%= link_to @note.title,note_path(@note) %>
 <%= @note.description %>
 <%= @note.all_tags %>
 <% if user_signed_in? %>

@@ -4,6 +4,14 @@ class Note < ApplicationRecord
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
 
+  def trim
+    title.downcase.gsub(" ", "-")
+  end
+
+  def to_param
+    "#{id}-#{trim}"
+  end
+
   def with_tags(name)
     Tag.find_by!(name: name).notes
   end
