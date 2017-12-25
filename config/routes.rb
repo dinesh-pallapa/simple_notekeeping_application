@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   root 'notes#index'
 
   resources :notes
-  get "tags/:tag", to: "notes#index", as: "tag"
+  get "tags/:tag", to: "notes#index", as: "tag", :constraints  => { :tag => /[^\/]+/ }
 end

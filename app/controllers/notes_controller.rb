@@ -61,7 +61,7 @@ class NotesController < ApplicationController
   private
 
   def note_params
-    params.require(:note).permit(:title, :description, :all_tags)
+    params.require(:note).permit(:title, :description, :all_tags, {tag_ids:[]})
   end
 
   def find_note
