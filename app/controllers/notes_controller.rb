@@ -41,7 +41,10 @@ class NotesController < ApplicationController
   end
 
   def update
-    if @note.update_attributes(note_params)
+    if @note.user_id != current_user.id
+      flash[:alert] = "You can only edit your own notes."
+      redirect_to root_path
+    elsif @note.update_attributes(note_params)
       flash[:notice] = "note Successfully updated"
       redirect_to note_path(@note)
     else
