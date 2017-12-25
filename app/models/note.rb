@@ -12,9 +12,6 @@ class Note < ApplicationRecord
     "#{id}-#{trim}"
   end
 
-  def with_tags(name)
-    Tag.find_by!(name: name).notes
-  end
 
   def all_tags=(names)
     self.tags = names.split(",").map do |name|
@@ -26,4 +23,7 @@ class Note < ApplicationRecord
     tags.map(&:name).join(", ")
   end
 
+  def self.tagged_with(name)
+    Tag.find_by_name!(name).notes
+  end
 end

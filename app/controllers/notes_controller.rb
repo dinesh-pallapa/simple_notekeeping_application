@@ -3,7 +3,11 @@ class NotesController < ApplicationController
   before_action :find_note, only: [:edit, :update, :show, :destroy]
 
   def index
-    @notes = current_user.notes unless current_user.nil?
+    if params[:tag]
+      @notes = Note.tagged_with(params[:tag]).where(user_id: current_user.id)
+    else
+      @notes = current_user.notes unless current_user.nil?
+    end
   end
 
   def new

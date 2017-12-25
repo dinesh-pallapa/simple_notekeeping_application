@@ -1,5 +1,7 @@
 <% if @notes.present? %>
   <% @notes.each do |note| %>
    <%= note.title %>
+
+   <%= raw tag_links(note.all_tags)%>
   <% end %>
 <% end %>
