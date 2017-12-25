@@ -3,6 +3,7 @@ class NotesController < ApplicationController
   before_action :find_note, only: [:edit, :update, :show, :destroy]
 
   def index
+    @tag_notes_count = Tag.joins(:notes).group(:name).count
     if params[:tag]
       @notes = Note.tagged_with(params[:tag]).where(user_id: current_user.id)
     else

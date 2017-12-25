@@ -1,7 +1,15 @@
+<% @tag_notes_count.each do |tag,count| %>
+  <%= link_to tag, tag_path(tag.strip), class:"#{count}" %>
+  <span><%= count %> </span>
+<% end %>
+<br />
+
 <% if @notes.present? %>
   <% @notes.each do |note| %>
    <%= note.title %>
 
    <%= raw tag_links(note.all_tags)%>
+  <br />
   <% end %>
 <% end %>
+
