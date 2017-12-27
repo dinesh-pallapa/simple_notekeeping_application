@@ -1,13 +1,8 @@
-<%= form_for @note do |f| %>
-  <p>
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </p>
+<div class="note-form col-md-8 col-md-offset-2">
+<%= simple_form_for @note do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description, as: :text %>
 
-  <p>
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </p>
   <%= f.label :all_tags, "select a tag below" %><br>
   <% @tags= Tag.all %>
     <% if @tags %>
@@ -18,11 +13,10 @@
       </div>
     <% end %>
   <% end %>
-  <p>
-    <%= f.label :all_tags, "custom Tags(Add comma if more than one tag)" %><br>
-    <%= f.text_field :all_tags %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
+  <%= f.label :all_tags, "custom Tags(Add comma if more than one tag)" %><br>
+  <%= f.text_field :all_tags %>
+  <br>
+  <br>
+  <%= f.button :submit %>
 <% end %>
+</div>
