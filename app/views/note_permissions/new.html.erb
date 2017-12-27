@@ -1,12 +1,16 @@
-<% if @member_emails.blank? %>
-  <p>No members to add</p>
-<% else %>
-  <%= form_for @note_permission do |f| %>
-    <% @member_emails.each do |member_email| %>
-        <li><%= check_box_tag "note_permission[shared_user][]", member_email %>
-          <%= member_email %>
-        </li>
-      <% end %>
-    <%= f.submit %>
+<div class="col-md-9 col-md-offset-1 members-form">
+  <% if @member_emails.blank? %>
+    <p>No members to add</p>
+  <% else %>
+    <p>Note: Select one checkbox at a time</p>
+    <%= form_for @note_permission do |f| %>
+      <% @member_emails.each do |member_email| %>
+          <li><%= check_box_tag "note_permission[shared_user][]", member_email %>
+            <%= member_email %>
+          </li>
+        <% end %>
+        <br>
+      <%= f.submit class: "btn btn-default"%>
+    <% end %>
   <% end %>
-<% end %>
+</div>

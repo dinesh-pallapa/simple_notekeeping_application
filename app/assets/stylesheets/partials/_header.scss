@@ -10,6 +10,9 @@ h1, h2, h3, h4, h5, h6 {
 a:hover   {
   text-decoration:  none;
 }
+li {
+  list-style-type: none
+}
 
 .navbar {
   font-family: 'Ubuntu', sans-serif;
@@ -54,7 +57,7 @@ a:hover   {
   padding: 24px 20px;
 }
 
-.signup-form, .signin-form, .note-form {
+.signup-form, .signin-form, .note-form, .members-form {
  @include background-tile;
   h2 {
     margin-top: 0;
