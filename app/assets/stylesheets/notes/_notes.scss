@@ -1,9 +1,9 @@
-.note-panel, .note-tags {
+.note-panel {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
   border: 1px solid #e6d3d3;
   background-color: #ffffff;
   padding: 10px;
-  margin: 10px;
+  margin: 20px 10px;
   .note-info {
     p {
       color:black;
@@ -14,4 +14,11 @@
       font-family:Old Standard TT;
     }
   }
+}
+.note-tags{
+  background-color: #fff;
+  margin-top: 2rem;
+  width: 8rem;
+  margin-left: 12px;
+  padding: 5px;
 }
