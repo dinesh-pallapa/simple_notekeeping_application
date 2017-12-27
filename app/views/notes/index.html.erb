@@ -28,7 +28,7 @@
   </div>
 </div>
 
-<div>
+<div class="col-md-9">
   <% unless @shared_notes.blank? %>
     <h2>Shared notes with you</h2>
     <% @shared_notes.each do |shared_note| %>
@@ -39,6 +39,7 @@
         <h4><%= link_to "Read more",note_path(shared_note.id)%>...</h4>
         <p>Tags: <%= raw tag_links(shared_note.all_tags)%></p>
       </div>
+    </div>
     <% end %>
   <% end %>
 </div>
