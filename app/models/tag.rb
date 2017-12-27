@@ -5,7 +5,7 @@ class Tag < ApplicationRecord
 
   def self.first_or_create_with_name!(name)
     where(name: name.strip.downcase).first_or_create! do |tag|
-      tag.name = name.strip
+      tag.name = name.strip if Tag.all.pluck(:name).include?(name)
     end
   end
 

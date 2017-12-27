@@ -14,7 +14,6 @@ class Note < ApplicationRecord
     "#{id}-#{trim}"
   end
 
-
   def all_tags=(names)
     self.tags = names.split(",").map do |name|
       Tag.first_or_create_with_name!(name)
