@@ -4,6 +4,8 @@ class Note < ApplicationRecord
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
 
+  has_and_belongs_to_many :note_permissions
+
   validates :title, presence: true
 
   def trim
