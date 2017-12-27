@@ -3,21 +3,21 @@
   <head>
     <title>SimpleNotekeepingApplication</title>
     <%= csrf_meta_tags %>
-
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="/assets/Tile.png" >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <% if user_signed_in? %>
-      <p><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></p>
-    <% else %>
-      <p><%= link_to "Sign In", new_user_session_path %></p>
-      <p><%= link_to "Sign Up", new_user_registration_path %></p>
+    <%= render "shared/header" %>
+    <% if !flash[:notice].nil? %>
+      <p class="notice"><%= notice %></p>
     <% end %>
-
+    <% if !flash[:alert].nil? %>
+      <p class="alert"><%= alert %></p>
+    <% end %>
     <%= yield %>
   </body>
 </html>

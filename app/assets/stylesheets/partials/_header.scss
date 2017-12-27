@@ -1,0 +1,38 @@
+body {
+  background-image: url(Tile.png);
+  background-color: #dfdfdf;
+  font-family: 'Lora', serif;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 300;
+}
+
+.navbar {
+  font-family: 'Ubuntu', sans-serif;
+  text-transform: uppercase;
+  margin-bottom: 0px;
+  border-radius: 0px;
+}
+.navbar-default {
+  background-color: #162646;
+  padding-bottom: 5px;
+  padding-top: 5px;
+
+  .navbar-nav > li > a {
+    color: #19b5d2;
+    font-size: 18px;
+    &:hover {
+     color: darken(#fff, 5%);
+     transition: 0.5s;
+    }
+  }
+}
+
+@mixin background-tile {
+  box-sizing: border-box;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px 6px #ccc;
+  padding: 1.5em 1.25em;
+}
