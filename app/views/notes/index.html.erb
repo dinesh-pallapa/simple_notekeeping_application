@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <div class = "col-md-9">
       <% if @notes.count == 0 %>
-        <h1>no notes avilable</h1>
+        <h1 class="note-panel">no notes avilable</h1>
       <% else %>
         <% @notes.all.each do |note| %>
           <div class="row note-panel">
@@ -26,4 +26,19 @@
     </ul>
     <% end %>
   </div>
+</div>
+
+<div>
+  <% unless @shared_notes.blank? %>
+    <h2>Shared notes with you</h2>
+    <% @shared_notes.each do |shared_note| %>
+      <div class="row note-panel">
+        <h1 class="show"><%= link_to shared_note.title,note_path(shared_note.id)%></h1>
+      <div class="col-md-8 col-sm-12 col-xs-12 note-info text-justify">
+        <%= (shared_note.description).truncate_words(70)%>
+        <h4><%= link_to "Read more",note_path(shared_note.id)%>...</h4>
+        <p>Tags: <%= raw tag_links(shared_note.all_tags)%></p>
+      </div>
+    <% end %>
+  <% end %>
 </div>
