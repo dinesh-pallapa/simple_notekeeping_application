@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171223171122) do
+ActiveRecord::Schema.define(version: 20171227130833) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "note_permissions", force: :cascade do |t|
+    t.string "shared_user"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "note_permissions_notes", force: :cascade do |t|
+    t.integer "note_permission_id"
+    t.integer "note_id"
+  end
 
   create_table "notes", force: :cascade do |t|
     t.string "title"

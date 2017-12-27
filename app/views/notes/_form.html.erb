@@ -17,6 +17,13 @@
   <%= f.text_field :all_tags %>
   <br>
   <br>
+  <p>Share access to your members</p>
+  <div class="field">
+    <%= f.collection_check_boxes(:note_permission_ids, @note_permission, :id, :shared_user, checked: @note.note_permissions.map(&:id)) do |note_user| %>
+      <%= note_user.check_box %>
+      <%= note_user.label %>
+    <% end %>
+  </div>
   <%= f.button :submit %>
 <% end %>
 </div>

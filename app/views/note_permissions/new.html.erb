@@ -1,0 +1,12 @@
+<% if @member_emails.blank? %>
+  <p>No members to add</p>
+<% else %>
+  <%= form_for @note_permission do |f| %>
+    <% @member_emails.each do |member_email| %>
+        <li><%= check_box_tag "note_permission[shared_user][]", member_email %>
+          <%= member_email %>
+        </li>
+      <% end %>
+    <%= f.submit %>
+  <% end %>
+<% end %>
