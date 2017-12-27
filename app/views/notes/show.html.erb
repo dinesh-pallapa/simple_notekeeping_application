@@ -2,7 +2,7 @@
   <div class="col-md-12">
     <div class="note-tags col-md-2">
       <% if user_signed_in? %>
-        <% if @note.user_id == current_user.id %>
+        <% if @note_access || (@note.user_id == current_user.id) %>
           <%= link_to "Edit" ,edit_note_path(@note) %> |
           <%= link_to "Delete", note_path(@note),method: :delete,data: {confirm: "This note is going to delete permanently "} %>
         <% end %>

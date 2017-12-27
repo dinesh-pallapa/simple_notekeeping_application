@@ -30,7 +30,7 @@ class NotesController < ApplicationController
 
   def show
     @tag_notes_count = Tag.joins(:notes).group(:name).count
-    @note_access = @shared_notes.any? {|note|  note.id == @note.id }
+    @note_access = @shared_notes.any? {|note|  note.id == @note.id } if !@shared_notes.nil?
     if !@note_access && (@note.user_id != current_user.id)
       flash[:alert] = "You didn't have permission to access this note"
       redirect_to root_path
@@ -39,7 +39,7 @@ class NotesController < ApplicationController
 
   def edit
     @note_permission = NotePermission.all.where.not(shared_user: current_user.email)
-    @note_access = @shared_notes.any? {|note|  note.id == @note.id }
+    @note_access = @shared_notes.any? {|note|  note.id == @note.id } if !@shared_notes.nil?
     if !@note_access && (@note.user_id != current_user.id)
       flash[:notice] = "You didn't have permission to edit"
       redirect_to note_path
@@ -79,6 +79,6 @@ class NotesController < ApplicationController
   end
   def find_shared_notes
     @shared_user = NotePermission.find_by_shared_user(current_user.email)
-    @shared_notes = @shared_user.notes
+    @shared_notes = @shared_user.notes if !@shared_user.nil?
   end
 end
