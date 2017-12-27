@@ -18,15 +18,15 @@ a:hover   {
   border-radius: 0px;
 }
 .navbar-default {
-  background-color: #162646;
+  background-color: #24292e;
   padding-bottom: 5px;
   padding-top: 5px;
 
   .navbar-nav > li > a {
-    color: #19b5d2;
-    font-size: 18px;
+    color: darken(#fff, 5%);
+    font-size: 15px;
     &:hover {
-     color: darken(#fff, 5%);
+     color: #19b5d2;
      transition: 0.5s;
     }
   }

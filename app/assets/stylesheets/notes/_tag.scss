@@ -1,11 +1,11 @@
-.tags{
+.tags {
   margin:  10px;
   padding: 0;
   list-style: none;
   background: #ffffff;
 }
 
-.tags li, .tags a{
+.tags li, .tags a {
   float: left;
   height: 24px;
   line-height: 24px;
@@ -13,7 +13,11 @@
   font-size: 15px;
 }
 
-.tags a{
+.tags li {
+  margin-top: 10px;
+}
+
+.tags a {
   font-family:  "Open Sans", sans-serif;
   margin-left: 20px;
   padding: 0 10px 0 12px;
@@ -24,7 +28,7 @@
   border-top-right-radius: 4px;
 }
 
-.tags a:before{
+.tags a:before {
   content: "";
   float: left;
   position: absolute;
@@ -37,7 +41,7 @@
   border-width: 12px 12px 12px 0;
 }
 
-.tags a:after{
+.tags a:after {
   content: "";
   position: absolute;
   top: 10px;
@@ -50,13 +54,13 @@
   box-shadow: -1px -1px 2px #004977;
 }
 
-.tags a:hover {
+.tags a:hover  {
   background: #555;
 }
 
-.tags a:hover:before {
+.tags a:hover:before  {
   border-color: transparent #555;
 }
-#tag-count{
+#tag-count {
   color:  black;
 }

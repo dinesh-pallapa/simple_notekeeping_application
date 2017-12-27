@@ -4,6 +4,8 @@ class Note < ApplicationRecord
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
 
+  validates :title, presence: true
+
   def trim
     title.downcase.gsub(" ", "-")
   end

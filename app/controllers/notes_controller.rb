@@ -21,7 +21,7 @@ class NotesController < ApplicationController
       flash[:notice] = "note created Successfully"
       redirect_to note_path(@note)
     else
-      flash[:alert] = "Error creating new note!"
+      flash[:alert] = "title can't be blank"
       redirect_to new_note_path
     end
   end
