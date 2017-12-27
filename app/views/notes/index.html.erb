@@ -1,15 +1,30 @@
-<% @tag_notes_count.each do |tag,count| %>
-  <%= link_to tag, tag_path(tag.strip), class:"#{count}" %>
-  <span><%= count %> </span>
-<% end %>
-<br />
-
-<% if @notes.present? %>
-  <% @notes.each do |note| %>
-   <%= note.title %>
-
-   <%= raw tag_links(note.all_tags)%>
-  <br />
-  <% end %>
-<% end %>
+<div>
+  <div class="container-fluid">
+    <div class = "col-md-9">
+      <% if @notes.count == 0 %>
+        <h1>no notes avilable</h1>
+      <% else %>
+        <% @notes.all.each do |note| %>
+          <div class="row note-panel">
+            <h1 class="show"><%= link_to note.title,note_path(note)%></h1>
+          <div class="col-md-8 col-sm-12 col-xs-12 note-info text-justify">
+            <%= (note.description).truncate_words(70)%>
+            <h4><%= link_to "Read more",note_path(note)%>...</h4>
+            <p>Tags: <%= raw tag_links(note.all_tags)%></p>
+          </div>
+        </div>
+        <% end %>
+      <% end %>
+    </div>
+    <% if !@tag_notes_count.empty? %>
+      <ul class="tags">
+      <% @tag_notes_count.each do |tag,count| %>
+        <li>
+          <%= link_to "<span id='tag-count'>#{count}</span> #{tag}".html_safe, tag_path(tag.strip), class: "tag" %>
+        </li>
+      <% end %>
+    </ul>
+    <% end %>
+  </div>
+</div>
 

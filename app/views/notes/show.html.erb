@@ -1,9 +1,20 @@
-<%= link_to @note.title,note_path(@note) %>
-<%= @note.description %>
-<%= @note.all_tags %>
-<% if user_signed_in? %>
-  <% if @note.user_id == current_user.id %>
-    <%= link_to "Edit" ,edit_note_path(@note) %>
-    <%= link_to "Delete", note_path(@note),method: :delete,data: {confirm: "Thinks onces again"} %>
-  <% end %>
-<% end %>
+<div class="row container-fluid">
+  <div class="col-md-12">
+    <div class="note-tags col-md-2">
+      <% if user_signed_in? %>
+        <% if @note.user_id == current_user.id %>
+          <%= link_to "Edit" ,edit_note_path(@note) %> |
+          <%= link_to "Delete", note_path(@note),method: :delete,data: {confirm: "This note is going to delete permanently "} %>
+        <% end %>
+      <% end %>
+    </div>
+    <br>
+    <br>
+    <div class="row note-panel">
+      <h1 class="show"><%= link_to @note.title,note_path(@note)%></h1>
+    <div class="col-sm-12 col-xs-12 note-info text-justify">
+      <p><%= @note.description %></p>
+    </div>
+    <br>
+  </div>
+</div>

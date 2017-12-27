@@ -1,0 +1,17 @@
+.note-panel, .note-tags {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e6d3d3;
+  background-color: #ffffff;
+  padding: 10px;
+  margin: 10px;
+  .note-info {
+    p {
+      color:black;
+      min-width: 240px;
+      line-height: 1.6em;
+      font-size: 1.6rem;
+      font-weight:300;
+      font-family:Old Standard TT;
+    }
+  }
+}

@@ -27,6 +27,7 @@ class NotesController < ApplicationController
   end
 
   def show
+    @tag_notes_count = Tag.joins(:notes).group(:name).count
     if @note.user_id != current_user.id
       flash[:alert] = "You didn't have permission to access this note"
       redirect_to root_path
@@ -54,7 +55,7 @@ class NotesController < ApplicationController
   end
 
   def destroy
-    if @note.delete
+    if @note.destroy
       flash[:notice] = "note Successfully deleted"
       redirect_to root_path
     else
